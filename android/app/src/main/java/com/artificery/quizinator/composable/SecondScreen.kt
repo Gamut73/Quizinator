@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -29,10 +30,10 @@ fun SecondScreen(navController: NavController) {
     val questionAnswers = Gson().fromJson<List<QuestionAnswer>>(jsonString, listType)
 
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-        Column {
+        Column (modifier = Modifier.padding(16.dp)) {
             Text(text = "Welcome", fontWeight = FontWeight.Bold, fontSize = 36.sp)
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = "Begin the when you a ready.", fontWeight = FontWeight.Normal, fontSize = 24.sp)
+            Text(text = "Begin the Quiz when you a ready.", fontWeight = FontWeight.Normal, fontSize = 24.sp)
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = {
                 val quizState = initQuizState(questionAnswers)

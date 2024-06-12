@@ -45,7 +45,9 @@ fun QuestionScreen(navController: NavController) {
                     .weight(1f),
                 shape = squareShape
             ) {
-                Text(text = quizState.redScore.toString())
+                Text(text = quizState.redScore.toString(),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 30.sp)
             }
             Text(
                 text = quizState.questionAnswers.get(quizState.currentQuestionIndex).question,
@@ -67,7 +69,9 @@ fun QuestionScreen(navController: NavController) {
                     .weight(1f),
                 shape = squareShape
             ) {
-                Text(text = quizState.blueScore.toString())
+                Text(text = quizState.blueScore.toString(),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 30.sp)
             }
         }
     }
