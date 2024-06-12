@@ -15,7 +15,7 @@ Generating quizzes, on Android, from YouTube videos.
 ### Using the app
 
 #### Installing the app
-You can download the APK from the [releases]() page. You can the install the APK on your Android device.
+You can download the APK from the [releases](https://github.com/Gamut73/Quizinator/releases) page. You can the install the APK on your Android device.
 
 #### Building the app
 You can also build the Application yourself in Android Studio. Just clone the repository and open the project in Android Studio. You can then build the APK and install it on your Android device or emulator.
