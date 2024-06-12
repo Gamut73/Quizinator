@@ -37,7 +37,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             navController = rememberNavController()
 
-            NavHost(navController = navController as NavHostController, startDestination = "entryPage") {
+            NavHost(
+                navController = navController as NavHostController,
+                startDestination = "entryPage"
+            ) {
                 composable("entryPage") {
                     EntryPageMessageCard(navController, message = message.value)
                 }
@@ -66,7 +69,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun EntryPageMessageCard(navController: NavController, message: String) {
-        Column (modifier = Modifier.padding(16.dp)) {
+        Column(modifier = Modifier.padding(16.dp)) {
             Text(text = message, fontWeight = FontWeight.Bold, fontSize = 36.sp,
                 modifier = Modifier.clickable {
                     getContent.launch("application/*")
@@ -74,12 +77,13 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-        val inputStream = contentResolver.openInputStream(uri!!)
-        val jsonString = inputStream?.bufferedReader().use { it?.readText() }
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            val inputStream = contentResolver.openInputStream(uri!!)
+            val jsonString = inputStream?.bufferedReader().use { it?.readText() }
 
-        getNavController().navigate("secondScreen/$jsonString")
-    }
+            getNavController().navigate("secondScreen/$jsonString")
+        }
 
     private fun getNavController(): NavController {
         return navController
